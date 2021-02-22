@@ -56,6 +56,6 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "${{ steps.package.outputs.VERSION }}"
           prerelease: true
-          title: "CI automatical build ${{ steps.package.outputs.VERSION }}"
+          title: "Message Forwarding Client ${{ steps.package.outputs.VERSION }}"
           files: |
             packages/*.jar

@@ -15,7 +15,7 @@ plugins {
 }
 
 group = "org.meowcat"
-version = "0.0.1"
+version = "0.1.0"
 
 repositories {
    mavenCentral()
