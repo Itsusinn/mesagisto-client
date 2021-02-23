@@ -1,10 +1,17 @@
 /**
- * Copyright 2020-2021 Meowcat Studio <studio@meowcat.org> and contributors.
+ * Copyright © 2020-2021 Meowcat Studio <studio@meowcat.org> and contributors.
  *
- * Licensed under the GNU Lesser General Public License version 3,
+ * Licensed under the GNU Lesser General Public License version 2.1 or later,
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *       https://opensource.org/licenses/LGPL-3.0
+ *
+ *       https://opensource.org/licenses/LGPL-2.1
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
 plugins {
@@ -15,7 +22,7 @@ plugins {
 }
 
 group = "org.meowcat"
-version = "0.1.0"
+version = "0.1.1"
 
 repositories {
    mavenCentral()
@@ -25,31 +32,8 @@ val compileKotlin: org.jetbrains.kotlin.gradle.tasks.KotlinCompile by tasks
 compileKotlin.kotlinOptions.jvmTarget = "1.8"
 
 dependencies {
-   compileOnly(Dependency.Ktor.Client.WebSocket)
-   compileOnly(Dependency.Ktor.Client.CIO)
-   compileOnly(Dependency.Okhttp)
-   compileOnly(Dependency.KotlinX.Coroutine)
-   compileOnly("io.github.microutils:kotlin-logging-jvm:2.0.2")
-}
-
-object Dependency {
-   object KotlinX {
-      private const val group = "org.jetbrains.kotlinx"
-      const val Coroutine = "$group:kotlinx-coroutines-core:${Versions.Coroutine}"
-   }
-   object Ktor {
-      private const val group = "io.ktor"
-      const val Core = ""
-      object Client {
-         const val WebSocket = "$group:ktor-client-websockets:${Versions.Ktor}"
-         const val CIO = "$group:ktor-client-cio:${Versions.Ktor}"
-      }
-   }
-   const val Okhttp = "com.squareup.okhttp3:okhttp:${Versions.Okhttp}"
-}
-object Versions {
-   const val Kotlin = "1.4.30"
-   const val Okhttp = "4.9.0"
-   const val Ktor = "1.5.0"
-   const val Coroutine = "1.4.1"
+   compileOnly("io.ktor:ktor-client-websockets:1.5.0")
+   compileOnly("io.ktor:ktor-client-cio:1.5.0")
+   compileOnly("com.squareup.okhttp3:okhttp:4.9.0")
+   compileOnly("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1")
 }
